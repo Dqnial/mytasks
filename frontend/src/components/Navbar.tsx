@@ -1,4 +1,3 @@
-import React from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { ListTodo, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";

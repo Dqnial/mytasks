@@ -1,3 +1,13 @@
+import React from "react";
+
+export interface Task {
+  _id: string;
+  title: string;
+  description: string;
+  status: "pending" | "in_progress" | "done";
+  dueDate?: string;
+}
+
 interface TaskModalProps {
   form: Partial<Task>;
   setForm: React.Dispatch<React.SetStateAction<Partial<Task>>>;
