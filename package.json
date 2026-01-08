@@ -1,0 +1,21 @@
+{
+  "name": "mytasks",
+  "version": "1.0.0",
+  "description": "**MyTasks** — это полнофункциональное веб-приложение для управления личными задачами.  \r Пользователи могут **регистрироваться, авторизоваться и управлять своими задачами (CRUD)**.  \r Проект разработан на стеке **MERN (MongoDB, Express, React, Node.js)** с использованием **TypeScript, Tailwind CSS и Zustand**.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend && npm install --prefix backend",
+    "start": "node backend/src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dqnial/mytasks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dqnial/mytasks/issues"
+  },
+  "homepage": "https://github.com/Dqnial/mytasks#readme"
+}
