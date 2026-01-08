@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(
   cors({
     origin:
-      process.env.NODE_ENV === "production" ? false : "http://localhost:5173",
+      process.env.NODE_ENV === "production" ? true : "http://localhost:5173",
     credentials: true,
   })
 );
@@ -31,7 +31,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
 
 if (process.env.NODE_ENV === "production") {
-  const buildPath = path.join(__dirname, "../../frontend/dist");
+  const buildPath = path.resolve(__dirname, "../../frontend/dist");
+
   app.use(express.static(buildPath));
 
   app.get("*", (req, res) => {
