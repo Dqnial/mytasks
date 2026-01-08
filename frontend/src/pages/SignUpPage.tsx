@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 import AuthImageRight from "../components/AuthImageRight";
 import toast from "react-hot-toast";
 
-const SignUpPage: React.FC = () => {
-  interface FormData {
-    fullName: string;
-    email: string;
-    password: string;
-  }
+interface SignUpFormData {
+  fullName: string;
+  email: string;
+  password: string;
+}
 
+const SignUpPage: React.FC = () => {
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
-  const [formData, setFormData] = React.useState<FormData>({
+  const [formData, setFormData] = React.useState<SignUpFormData>({
     fullName: "",
     email: "",
     password: "",
@@ -29,15 +29,12 @@ const SignUpPage: React.FC = () => {
     if (!formData.password) return toast.error("Введите пароль");
     if (formData.password.length < 6)
       return toast.error("Пароль должен содержать не менее 6 символов");
-
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
     const success = validateForm();
-
     if (success === true) signup(formData);
   };
 
@@ -50,8 +47,7 @@ const SignUpPage: React.FC = () => {
           </div>
           <h1 className="text-3xl font-bold mt-2">Создать аккаунт</h1>
           <p className="text-base-content/60">
-            Присоединяйтесь, чтобы держать задачи под контролем и не забывать о
-            важном.
+            Присоединяйтесь, чтобы держать задачи под контролем.
           </p>
           <div className="w-full">
             <form onSubmit={handleSubmit} className="mt-4 space-y-6">
@@ -99,17 +95,7 @@ const SignUpPage: React.FC = () => {
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
                   >
-                    {showPassword ? (
-                      <Eye
-                        className="cursor-pointer"
-                        onClick={() => setShowPassword(true)}
-                      />
-                    ) : (
-                      <EyeOff
-                        className="cursor-pointer"
-                        onClick={() => setShowPassword(false)}
-                      />
-                    )}
+                    {showPassword ? <Eye /> : <EyeOff />}
                   </button>
                 </label>
               </div>
@@ -129,7 +115,6 @@ const SignUpPage: React.FC = () => {
                   )}
                 </button>
               </div>
-
               <div className="text-center">
                 <p className="text-base-content/60">
                   У вас уже есть аккаунт?{" "}
@@ -142,7 +127,6 @@ const SignUpPage: React.FC = () => {
           </div>
         </div>
       </div>
-
       <AuthImageRight title="Добро пожаловать!" subtitle="Создайте аккаунт" />
     </div>
   );

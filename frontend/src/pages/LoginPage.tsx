@@ -4,20 +4,20 @@ import { Eye, EyeOff, ListTodo, Loader2, Lock, Mail } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore";
 import { Link } from "react-router-dom";
 
-const LoginPage = () => {
-  interface FormData {
-    email: string;
-    password: string;
-  }
+interface LoginFormData {
+  email: string;
+  password: string;
+}
 
+const LoginPage = () => {
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
-  const [formData, setFormData] = React.useState<FormData>({
+  const [formData, setFormData] = React.useState<LoginFormData>({
     email: "",
     password: "",
   });
   const { login, isLoggingIn } = useAuthStore();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     login(formData);
   };
@@ -66,15 +66,9 @@ const LoginPage = () => {
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? (
-                      <Eye
-                        className="cursor-pointer"
-                        onClick={() => setShowPassword(true)}
-                      />
+                      <Eye className="cursor-pointer" />
                     ) : (
-                      <EyeOff
-                        className="cursor-pointer"
-                        onClick={() => setShowPassword(false)}
-                      />
+                      <EyeOff className="cursor-pointer" />
                     )}
                   </button>
                 </label>
@@ -108,7 +102,6 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
-
       <AuthImageRight title="Добро пожаловать!" subtitle="Войдите в аккаунт" />
     </div>
   );
