@@ -4,17 +4,7 @@ import toast from "react-hot-toast";
 import { axiosInstance } from "../lib/axios";
 import { useTasks } from "../hooks/useTasks";
 import TaskFilter from "../components/TaskFilter";
-import TaskModal from "../components/TaskModal";
-
-interface Task {
-  _id: string;
-  title: string;
-  description?: string;
-  status: "pending" | "in_progress" | "done";
-  dueDate?: Date;
-  createdAt: string;
-  updatedAt: string;
-}
+import TaskModal, { type Task } from "../components/TaskModal";
 
 const statusLabels: Record<Task["status"], string> = {
   pending: "Ожидание",

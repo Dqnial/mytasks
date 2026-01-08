@@ -3,9 +3,11 @@ import React from "react";
 export interface Task {
   _id: string;
   title: string;
-  description: string;
+  description?: string;
   status: "pending" | "in_progress" | "done";
   dueDate?: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 interface TaskModalProps {

@@ -1,16 +1,7 @@
 import React from "react";
 import { axiosInstance } from "../lib/axios";
 import toast from "react-hot-toast";
-
-export interface Task {
-  _id: string;
-  title: string;
-  description?: string;
-  status: "pending" | "in_progress" | "done";
-  dueDate?: Date;
-  createdAt: string;
-  updatedAt: string;
-}
+import { type Task } from "../components/TaskModal";
 
 export function useTasks(filterStatus: string) {
   const [tasks, setTasks] = React.useState<Task[]>([]);
