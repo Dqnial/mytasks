@@ -6,7 +6,7 @@
 
 ## 🔗 Демо
 
-https://mytasks-h6yf.onrender.com/
+https://mytasks-h6yf.onrender.com
 
 ## 🚀 Стек технологий
 
